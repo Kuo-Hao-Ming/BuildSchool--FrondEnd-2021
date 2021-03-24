@@ -1,0 +1,417 @@
+<!-- https://www.toyota.com.tw/tech_TNGA.aspx#/advantages -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/favicon.ico">
+    <title>Toyota</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .wrap {
+            width: 960px;
+            margin: auto;
+            padding-bottom: 200px;
+        }
+        .title {
+            position: relative;
+            font-size: 40px;
+            line-height: 40px;
+            font-weight: bold;
+            text-align: center;
+            padding: 60px 0 20px 0;
+        }
+        .title h1 {
+            font-size: 40px;
+            font-family: "微軟正黑體";
+            text-align: center;
+            font-weight: bold;
+        }
+        .title .line {
+            display: block;
+            width: 38px;
+            height: 4px;
+            margin: 18px auto 0;
+            background-color: #000000;
+        }
+        .selector {
+            text-align: center;
+            padding: 10px 0 10px 0;
+            margin: 20px 0 0 0;
+            font-size: 18px;
+            overflow: hidden;
+        }
+        /* 選擇列 */
+        .selector a { /* 原先顯示 */
+            position: relative;
+            margin: 10px;
+            padding: 10px 49.212px;
+            border: 1px dotted #000000;
+            box-sizing: border-box;
+            text-decoration:none;
+            color: #000000;
+        }
+        .selector a:first-child {
+            margin-left: 0;
+        }
+        .selector a:last-child {
+            margin-right: 0;
+        }
+        .selector a > span { 
+            position: absolute;
+            top: 90%;
+            left: 0;
+            box-sizing: border-box;
+            opacity: 1;
+            width: 100%;
+            padding: 10px 10px 10px 10px;
+            height: 100%;
+            color: #fff;
+            background-color: #ae0014;
+            transition: .2s;
+        }
+        .selector a:hover span {
+            opacity: 1;
+            top: 0;
+        }
+        .control {
+            width: 960px;
+            height: 900px;
+            margin-bottom: 20px;
+        }
+        .gray-box {
+            background-color: #eeeeee;
+            opacity: 0.6;
+            float: right;
+            width: 439px;
+            height: 280px;
+            position: relative;
+            left: 0;
+            top: -240px;
+            z-index: -1;
+        }
+        .txt {
+            height: 388px;
+            width: 355px;
+            position: relative;
+            top: 118px;
+            left: 0px;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .box-title {
+            background-color: #ae0014;
+            color: #fff;
+            display: flex;
+        }
+        .box-title span {
+            transform:rotate(90deg);
+            line-height: 60px;
+            height: auto;
+            width: 50px;
+            height: 100%;
+            padding: 0 12px;
+            margin: 0;
+            font-size: 120px;
+        }
+        .box-title h2 {
+            padding: 20px 10px;
+            font-size: 60px;
+        }
+        .box {
+            background-color: #000000;
+            color: #ffffff;
+            font-size: 24px;
+            line-height: 1.667;
+            font-weight: 600;
+            padding: 20px;
+            box-sizing: border-box;
+            height: 250px;
+        }
+        .box p {
+            font-size: 20px;
+            font-weight: 100;
+        }
+        .description {
+            background-color: #eeeeee;
+            position: absolute;
+            padding: 15px;
+            width: 650px;
+            position: absolute;
+            top: 635px;
+            left: 50px;
+        }
+        .description-title {
+            display: block;
+            font-size: 3em;
+            color: #aaa;
+            position: relative;
+            color: #ae0014;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .description-title::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            background: #ae0014;
+            width: 65%;
+            height: 2px;
+        }
+        .description-title::after {
+            right: 3%;
+        }
+        .description h4 {
+            background-color: #000000;
+            color: #ffffff;
+            border-radius: 4px;
+            font-size: 20px;
+            padding: 2px 10px;
+            display: inline-block;
+            font-weight: 500;
+        }
+        .description li {
+            list-style: none;
+            color: gray;
+            font-size: 16px;
+            padding: 5px 0 5px 20px;
+            padding-left: 2em;
+            text-indent: -1em;
+            font-weight: 600;
+        }
+        .description li::before {
+            content: "ㆍ";
+            color: rgb(245, 29, 29);
+        }
+        .car-link {
+            background-image:url("img/advantage-1-video-button-bg.png");
+            background-repeat:no-repeat;
+            background-size: cover;
+            height: 430px;
+            width: 695px;
+            margin: -150px 0 0 190px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: absolute;
+        }
+        .security, .people {
+            width: 960px;
+            height: 820px;
+            position: relative;
+            margin-bottom: 100px;
+        }
+        .security .description, .people .description {
+            left: 280px;
+        }
+        .security .txt, .people .txt {
+            left: 605px;
+        }
+        .security .car-link {
+            background-image:url("img/advantage-2-video-button-bg.png");
+            margin: -150px 0 0 0;
+            justify-content: flex-start;
+        }
+        .people .car-link {
+            background-image:url("img/advantage-4-video-button-bg.png");
+            margin: -150px 0 0 0;
+            justify-content: flex-start;
+        }
+        .security .gray-box, .people .gray-box {
+            left: -170px;
+            top: -240px;
+            width: 518px;
+            height: 440px;
+        }
+        .ride {
+            width: 960px;
+            height: 820px;
+            position: relative;
+            margin-bottom: 100px;
+        }
+        .ride .description, .proud .description {
+            top: 640px;
+        }
+        .ride .car-link {
+            background-image:url("img/advantage-3-video-button-bg.png");
+        }
+        .proud {
+            width: 960px;
+            height: 820px;
+            position: relative;
+        }
+        .proud .car-link {
+            background-image:url("img/advantage-5-video-button-bg.png");
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="title">
+            <h1>五大優勢</h1>
+            <span class="line"></span>
+        </div>
+
+        <div class="selector">
+            <a href="#control">操控樂趣<span>操控樂趣</span></a>
+            <a href="#security">安全守護<span>安全守護</span></a>
+            <a href="#ride">乘坐舒適<span>乘坐舒適</span></a>
+            <a href="#people">以人為本<span>以人為本</span></a>
+            <a href="#proud">引以為傲<span>引以為傲</span></a>
+        </div>
+
+        <section class="control" id="control">
+            <div class="txt">
+                <div class="box-title">
+                    <span>01</span>
+                    <h2>操控樂趣</h2>
+                </div>
+                <div class="box">
+                    <h3>人人滿意的駕駛體驗</h3>
+                    <p>透過最佳重量分配，實現平順起步、直線穩定加速，過彎同時保持車身平穩，帶給駕駛更靈敏的道路反饋，享受隨心馳騁的行駛快感。</p>
+                </div>
+            </div>
+            <div class="car">
+                <a class="car-link" href="https://www.youtube.com/watch?v=WH9kmoDw0fI&t=46s">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReAEHdwB1iSVeVfAyOfOvzQj_oR5IUWF_xFQ&usqp=CAU" title="youtube-icon" alt="youtube-icon">
+                </a>
+            </div>
+            <div class="description">
+                <span class="description-title">因為我們做了這些革新</span>
+                <h4>低重心設計</h4>
+                <li>透過低重心設計，不僅呈現更低伏的外觀，更能減少車身側傾，保持高速行駛穩定性。</li>
+                <h4>車體剛性強化</h4>
+                <li>車身結構採用超高強度鋼材，提高車輛穩定性，同時藉由雷射強化焊接技術，大幅增加焊點數量，提升車身抗扭剛性，強化駕馭穩定性及安全性。</li>
+                <h4>四輪獨立懸吊</h4>
+                <li>搭載全新四輪獨立懸吊設定，透過懸吊的高承載強度，保持輪胎抓地力，同時兼顧轉向靈敏度與清晰路感回饋，提升駕馭樂趣。</li>
+            </div>
+            <div class="gray-box"></div>
+        </section>
+
+        <section class="security" id="security">
+            <div class="txt">
+                <div class="box-title">
+                    <span>02</span>
+                    <h2>安全守護</h2>
+                </div>
+                <div class="box">
+                    <h3>行車更安心的高剛性車體</h3>
+                    <p>您的愛車會妥善保護您，強悍穩固的車身可以使您安全無虞。世界級的安全科技讓您輕鬆自如享受旅程、毫無後顧之憂。</p>
+                </div>
+            </div>
+            <div class="car">
+                <a class="car-link" href="https://www.youtube.com/watch?v=A9-cReYqtnM&t=46s">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6W6JWjse_7uE3Y_cos7oaAOzz2ro8ckMDVA&usqp=CAU" title="youtube-icon" alt="youtube-icon">
+                </a>
+            </div>
+            <div class="description">
+                <span class="description-title">因為我們做了這些革新</span>
+                <h4>主動安全</h4>
+                <li>以先進的TSS系統，主動偵測路況，輔助駕駛判斷路況並維持行車安全</li>
+                <h4>被動安全</h4>
+                <li>堅固的高剛性車體，使用熱沖壓材料的高強度況扭鋼板，強化座艙對意外事故的保護力。</li>
+            </div>
+            <div class="gray-box"></div>
+        </section>
+
+        <section class="ride" id="ride">
+            <div class="txt">
+                <div class="box-title">
+                    <span>03</span>
+                    <h2>乘坐舒適</h2>
+                </div>
+                <div class="box">
+                    <h3>令人放鬆舒適的車室空間</h3>
+                    <p>車室空間設計著重人體工學，透過方向盤、踏板等位置優化，追求更舒適的駕駛位置，並以新型座椅設計，提高座椅包覆性，致力實現長途駕駛不疲勞的舒適駕馭體驗。</p>
+                </div>
+            </div>
+            <div class="car">
+                <a class="car-link" href="https://www.youtube.com/watch?v=SMNtG6-gS2M&t=46s">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc3ZF9ednJAG9e7l6oLk74aFIIJFESiwr_Zg&usqp=CAU" title="youtube-icon" alt="youtube-icon">
+                </a>
+            </div>
+            <div class="description">
+                <span class="description-title">因為我們做了這些革新</span>
+                <h4>駕駛位置最佳化</h4>
+                <li>針對駕駛位置進行徹底的修改，讓駕馭者可以如同握手般自然且舒適地操縱方向盤。</li>
+                <h4>駕馭視野佳</h4>
+                <li>考量駕駛作進車內的高度，透過前擋風玻璃位置的調整，達到盲區極小化，使駕駛視野更開闊，同步提升駕馭安全。</li>
+                <h4>更寧靜的車室</h4>
+                <li>採用最新三層結構的隔音材料，與引擎、變速箱的零件改革，將座艙的震動抑制在最小限度，提供乘客安靜的感受。</li>
+            </div>
+            <div class="gray-box"></div>
+        </section>
+
+        <section class="people" id="people">
+            <div class="car">
+                <div class="txt">
+                    <div class="box-title">
+                        <span>04</span>
+                        <h2>以人為本</h2>
+                    </div>
+                    <div class="box">
+                        <h3>使用者導向的貼心設計</h3>
+                        <p>
+                            藉由高度人性化的介面整合傳遞車輛資訊
+                            豐富日常駕駛體驗。從提升油耗表現到行李
+                            廂空間最適化,均細心考量,更加貼近使用
+                            者真正所需與習慣,並給予即時回應。
+                        </p>
+                    </div>
+                </div>
+                <div class="car">
+                    <a class="car-link" href="https://www.youtube.com/watch?v=MniLwJEoNgg&t=46s">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMyvWrmvj6lfZqqQHV8_QTNvI28neGoukuuw&usqp=CAU" title="youtube-icon" alt="youtube-icon">
+                    </a>
+                </div>
+                <div class="description">
+                    <span class="description-title">因為我們做了這些革新</span>
+                    <h4>優異油耗表現</h4>
+                    <li>以 AURIS為例,更強勁的高效引擎將熱效率提升至40%,達到世界級水準,屢屢突破燃油效率新境界</li>
+                    <h4>行李箱空間最適化</h4>
+                    <li>以 PRIUS為例,透過將電池位置移到後座下方,譲行李廂擁有更大的空間。</li>
+                </div>
+                <div class="gray-box"></div>
+            </div>
+        </section>
+
+        <section class="proud" id="proud">
+            <div class="car">
+                <div class="txt">
+                    <div class="box-title">
+                        <span>05</span>
+                        <h2>引以為傲</h2>
+                    </div>
+                    <div class="box">
+                        <h3>極具吸引力的精心設計</h3>
+                        <p>
+                            TNGA車款擁有讓人忍不住回頭的新潮外
+                            觀讓駕駛充滿自信的駕馭快!不僅讓車
+                            主能展現個人風格・也能讓擁有者都能引以
+                            為傲
+                        </p>
+                    </div>
+                </div>
+                <div class="car">
+                    <a class="car-link" href="https://www.youtube.com/watch?v=eqFHWdDMXc0&t=46s">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0KajbU-1rgOE6fzTf82aQkGGdgfb4k1gZVg&usqp=CAU" title="youtube-icon" alt="youtube-icon">
+                    </a>
+                </div>
+                <div class="description">
+                    <span class="description-title">因為我們做了這些革新</span>
+                    <h4>設計概念</h4>
+                    <li>TNGA低重心設計・不僅呈現更低伏的運動化外觀更講究高品質內装的一致性。</li>
+                    <h4>環保概念</h4>
+                    <li>為了對環境保護盡一份心力,我們全面提升傳統引、變速箱與油電複合動力的動力效能。</li>
+                </div>
+                <div class="gray-box"></div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
